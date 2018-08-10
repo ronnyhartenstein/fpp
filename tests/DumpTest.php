@@ -49,7 +49,12 @@ class DumpTest extends TestCase
             ],
         ];
 
-        $locatePsrPath = function (Definition $definition, ?Constructor $constructor) use ($prefixesPsr4): string {
+		/**
+		 * @param Definition $definition
+		 * @param $constructor
+		 * @return string
+		 */
+        $locatePsrPath = function (Definition $definition, $constructor) use ($prefixesPsr4): string {
             return locatePsrPath($prefixesPsr4, [], $definition, $constructor);
         };
 

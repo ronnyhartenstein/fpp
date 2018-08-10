@@ -38,7 +38,10 @@ class Argument
         return $this->name;
     }
 
-    public function type(): ?string
+	/**
+	 * @return null|string
+	 */
+    public function type()
     {
         return $this->type;
     }

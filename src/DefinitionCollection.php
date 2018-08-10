@@ -76,7 +76,12 @@ class DefinitionCollection
         return isset($this->constructorDefinitions[$name]);
     }
 
-    public function definition(string $namespace, string $name): ?Definition
+	/**
+	 * @param string $namespace
+	 * @param string $name
+	 * @return Definition|null
+	 */
+    public function definition(string $namespace, string $name)
     {
         foreach ($this->definitions as $definition) {
             if ($definition->namespace() === $namespace && $definition->name() === $name) {
@@ -87,7 +92,11 @@ class DefinitionCollection
         return null;
     }
 
-    public function constructorDefinition(string $name): ?Definition
+	/**
+	 * @param string $name
+	 * @return Definition|null
+	 */
+    public function constructorDefinition(string $name)
     {
         return $this->constructorDefinitions[$name] ?? null;
     }

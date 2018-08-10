@@ -200,7 +200,10 @@ class Definition
         return $this->conditions;
     }
 
-    public function messageName(): ?string
+	/**
+	 * @return string|null
+	 */
+    public function messageName()
     {
         return $this->messageName;
     }
