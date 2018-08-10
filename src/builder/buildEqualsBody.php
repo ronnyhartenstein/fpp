@@ -18,7 +18,7 @@ use Fpp\Deriving;
 
 const buildEqualsBody = '\Fpp\Builder\buildEqualsBody';
 
-function buildEqualsBody(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildEqualsBody(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor) {
         return $placeHolder;

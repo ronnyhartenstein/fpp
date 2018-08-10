@@ -18,7 +18,7 @@ use Fpp\Deriving;
 
 const buildToArrayBody = '\Fpp\Builder\buildToArrayBody';
 
-function buildToArrayBody(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildToArrayBody(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor) {
         return $placeHolder;

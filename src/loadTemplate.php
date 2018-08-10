@@ -28,7 +28,7 @@ use Fpp\Deriving\Uuid;
 
 const loadTemplate = '\Fpp\loadTemplate';
 
-function loadTemplate(Definition $definition, ?Constructor $constructor): string
+function loadTemplate(Definition $definition, $constructor): string
 {
     static $cache = [];
 

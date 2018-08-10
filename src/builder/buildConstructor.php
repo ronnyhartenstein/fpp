@@ -18,7 +18,7 @@ use Fpp\Deriving;
 
 const buildConstructor = '\Fpp\Builder\buildConstructor';
 
-function buildConstructor(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildConstructor(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor) {
         return $placeHolder;

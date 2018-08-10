@@ -19,7 +19,7 @@ use function Fpp\isScalarConstructor;
 
 const buildClassExtends = '\Fpp\Builder\buildClassExtends';
 
-function buildClassExtends(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildClassExtends(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     foreach ($definition->derivings() as $deriving) {
         if ($deriving->equals(new Deriving\AggregateChanged())) {

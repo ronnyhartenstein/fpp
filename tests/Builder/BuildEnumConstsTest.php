@@ -38,8 +38,8 @@ class BuildEnumConstsTest extends TestCase
         );
 
         $expected = <<<EXPECTED
-public const Red = 0;
-    public const Blue = 1;
+const Red = 0;
+    const Blue = 1;
 EXPECTED;
 
         $this->assertSame($expected, buildEnumConsts($definition, null, new DefinitionCollection($definition), 'enum_consts'));
@@ -67,8 +67,8 @@ EXPECTED;
         );
 
         $expected = <<<EXPECTED
-public const Red = 'red';
-    public const Blue = 'blue';
+const Red = 'red';
+    const Blue = 'blue';
 EXPECTED;
 
         $this->assertSame($expected, buildEnumConsts($definition, null, new DefinitionCollection($definition), 'enum_consts'));

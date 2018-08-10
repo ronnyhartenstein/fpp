@@ -13,7 +13,7 @@ namespace Fpp;
 
 const locatePsrPath = '\Fpp\locatePsrPath';
 
-function locatePsrPath(array $prefixesPsr4, array $prefixesPsr0, Definition $definition, ?Constructor $constructor): string
+function locatePsrPath(array $prefixesPsr4, array $prefixesPsr0, Definition $definition, $constructor): string
 {
     if ($constructor && ! \in_array(
             $constructor->name(),

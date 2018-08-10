@@ -17,7 +17,7 @@ use Fpp\DefinitionCollection;
 
 const buildClassImplements = '\Fpp\Builder\buildClassImplements';
 
-function buildClassImplements(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildClassImplements(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     $interfaces = [];
     foreach (\array_map('\strval', $definition->markers()) as $marker) {

@@ -19,7 +19,7 @@ use function Fpp\isScalarConstructor;
 
 const buildFromArrayBody = '\Fpp\Builder\buildFromArrayBody';
 
-function buildFromArrayBody(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildFromArrayBody(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor) {
         return $placeHolder;

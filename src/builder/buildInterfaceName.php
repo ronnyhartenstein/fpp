@@ -17,7 +17,7 @@ use Fpp\DefinitionCollection;
 
 const buildInterfaceName = '\Fpp\Builder\buildInterfaceName';
 
-function buildInterfaceName(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildInterfaceName(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (! $definition->isMarker()) {
         return $placeHolder;

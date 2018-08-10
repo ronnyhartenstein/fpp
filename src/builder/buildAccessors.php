@@ -21,7 +21,7 @@ use function Fpp\buildMethodBodyFromPayload;
 
 const buildAccessors = '\Fpp\Builder\buildAccessors';
 
-function buildAccessors(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildAccessors(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor
         || 0 === \count($constructor->arguments())

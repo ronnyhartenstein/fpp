@@ -18,7 +18,7 @@ use Fpp\Deriving;
 
 const buildProperties = '\Fpp\Builder\buildProperties';
 
-function buildProperties(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildProperties(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor) {
         return $placeHolder;

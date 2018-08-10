@@ -18,7 +18,7 @@ use Fpp\Deriving;
 
 const buildTraits = '\Fpp\Builder\buildTraits';
 
-function buildTraits(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildTraits(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     foreach ($definition->derivings() as $deriving) {
         if ($deriving->equals(new Deriving\Command())

@@ -149,7 +149,7 @@ namespace {{namespace}};
     {{constructor}}
     {{accessors}}
     {{setters}}
-    public const OPTIONS = [
+    const OPTIONS = [
         {{enum_options}}
     ];
 

@@ -18,7 +18,7 @@ use Fpp\Deriving;
 
 const buildPayloadValidation = '\Fpp\Builder\buildPayloadValidation';
 
-function buildPayloadValidation(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildPayloadValidation(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     foreach ($definition->derivings() as $deriving) {
         if ($deriving->equals(new Deriving\AggregateChanged())

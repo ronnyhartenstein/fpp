@@ -18,7 +18,7 @@ use Fpp\Deriving;
 
 const buildClassKeyword = '\Fpp\Builder\buildClassKeyword';
 
-function buildClassKeyword(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildClassKeyword(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     $enum = new Deriving\Enum();
 

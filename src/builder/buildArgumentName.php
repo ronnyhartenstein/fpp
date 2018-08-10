@@ -18,7 +18,7 @@ use function Fpp\isScalarConstructor;
 
 const buildArgumentName = '\Fpp\Builder\buildArgumentName';
 
-function buildArgumentName(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildArgumentName(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor) {
         return $placeHolder;

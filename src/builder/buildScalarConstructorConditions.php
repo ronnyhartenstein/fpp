@@ -18,7 +18,7 @@ use function Fpp\isScalarConstructor;
 
 const buildScalarConstructorConditions = '\Fpp\Builder\buildScalarConstructorConditions';
 
-function buildScalarConstructorConditions(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildScalarConstructorConditions(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor || ! isScalarConstructor($constructor)) {
         return $placeHolder;

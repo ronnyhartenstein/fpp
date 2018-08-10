@@ -20,7 +20,7 @@ use function Fpp\var_export as fpp_var_export;
 
 const buildEnumOptions = '\Fpp\Builder\buildEnumOptions';
 
-function buildEnumOptions(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildEnumOptions(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if ($constructor || $definition->isMarker()) {
         return $placeHolder;

@@ -19,7 +19,7 @@ use function Fpp\buildArgumentType;
 
 const buildSetters = '\Fpp\Builder\buildSetters';
 
-function buildSetters(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildSetters(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor) {
         return $placeHolder;

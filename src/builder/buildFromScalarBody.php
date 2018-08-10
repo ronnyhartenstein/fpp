@@ -19,7 +19,7 @@ use function Fpp\isScalarConstructor;
 
 const buildFromScalarBody = '\Fpp\Builder\buildFromScalarBody';
 
-function buildFromScalarBody(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildFromScalarBody(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor) {
         return $placeHolder;

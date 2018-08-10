@@ -18,7 +18,7 @@ use function Fpp\isScalarConstructor;
 
 const buildNamespace = '\Fpp\Builder\buildNamespace';
 
-function buildNamespace(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildNamespace(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if ($constructor) {
         if (isScalarConstructor($constructor)) {

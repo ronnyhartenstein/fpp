@@ -19,7 +19,7 @@ use Fpp\Deriving;
 
 const buildStaticConstructorBody = '\Fpp\Builder\buildStaticConstructorBody';
 
-function buildStaticConstructorBody(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildStaticConstructorBody(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor) {
         return $placeHolder;

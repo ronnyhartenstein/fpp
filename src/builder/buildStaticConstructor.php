@@ -17,7 +17,7 @@ use Fpp\DefinitionCollection;
 
 const buildStaticConstructor = '\Fpp\Builder\buildStaticConstructor';
 
-function buildStaticConstructor(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildStaticConstructor(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor || \count($constructor->arguments()) === 0) {
         return $placeHolder;

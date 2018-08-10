@@ -17,7 +17,7 @@ use Fpp\DefinitionCollection;
 
 const buildArguments = '\Fpp\Builder\buildArguments';
 
-function buildArguments(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildArguments(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor) {
         return $placeHolder;

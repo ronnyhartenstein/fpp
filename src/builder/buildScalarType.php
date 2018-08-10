@@ -19,7 +19,7 @@ use function Fpp\isScalarConstructor;
 
 const buildScalarType = '\Fpp\Builder\buildScalarType';
 
-function buildScalarType(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildScalarType(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     if (null === $constructor) {
         return $placeHolder;

@@ -20,7 +20,7 @@ use function Fpp\var_export as fpp_var_export;
 
 const buildEnumConsts = '\Fpp\Builder\buildEnumConsts';
 
-function buildEnumConsts(Definition $definition, ?Constructor $constructor, DefinitionCollection $collection, string $placeHolder): string
+function buildEnumConsts(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
     $replace = '';
 

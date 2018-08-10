@@ -16,7 +16,7 @@ const replace = '\Fpp\replace';
 function replace(
     string $template,
     Definition $definition,
-    ?Constructor $constructor,
+    $constructor,
     DefinitionCollection $collection,
     array $builders = null
 ): string {
