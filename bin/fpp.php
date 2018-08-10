@@ -23,7 +23,7 @@ $autoloader = require __DIR__ . '/../src/bootstrap.php';
 $prefixesPsr4 = $autoloader->getPrefixesPsr4();
 $prefixesPsr0 = $autoloader->getPrefixes();
 
-$locatePsrPath = function (Definition $definition, ?Constructor $constructor) use ($prefixesPsr4, $prefixesPsr0): string {
+$locatePsrPath = function (Definition $definition, $constructor) use ($prefixesPsr4, $prefixesPsr0): string {
     return locatePsrPath($prefixesPsr4, $prefixesPsr0, $definition, $constructor);
 };
 
