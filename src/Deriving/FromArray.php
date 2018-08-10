@@ -17,7 +17,7 @@ use Fpp\InvalidDeriving;
 
 class FromArray extends AbstractDeriving
 {
-    public const VALUE = 'FromArray';
+    const VALUE = 'FromArray';
 
     public function checkDefinition(Definition $definition)
     {

@@ -18,7 +18,7 @@ use function Fpp\isScalarConstructor;
 
 class FromScalar extends AbstractDeriving
 {
-    public const VALUE = 'FromScalar';
+    const VALUE = 'FromScalar';
 
     public function checkDefinition(Definition $definition)
     {

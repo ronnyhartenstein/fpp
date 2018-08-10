@@ -17,7 +17,7 @@ use Fpp\InvalidDeriving;
 
 class Query extends AbstractDeriving
 {
-    public const VALUE = 'Query';
+    const VALUE = 'Query';
 
     public function checkDefinition(Definition $definition)
     {

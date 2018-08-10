@@ -17,7 +17,7 @@ use Fpp\InvalidDeriving;
 
 class DomainEvent extends AbstractDeriving
 {
-    public const VALUE = 'DomainEvent';
+    const VALUE = 'DomainEvent';
 
     public function checkDefinition(Definition $definition)
     {

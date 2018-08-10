@@ -17,7 +17,7 @@ use Fpp\InvalidDeriving;
 
 class ToArray extends AbstractDeriving
 {
-    public const VALUE = 'ToArray';
+    const VALUE = 'ToArray';
 
     public function checkDefinition(Definition $definition)
     {

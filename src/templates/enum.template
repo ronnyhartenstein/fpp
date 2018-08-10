@@ -1,4 +1,4 @@
-    public const OPTIONS = [
+    const OPTIONS = [
         {{enum_options}}
     ];
 

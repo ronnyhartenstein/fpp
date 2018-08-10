@@ -13,15 +13,15 @@ namespace Fpp;
 
 final class DefinitionType
 {
-    public const OPTIONS = [
+    const OPTIONS = [
         'Data' => 0,
         'Exception' => 1,
         'Marker' => 2,
     ];
 
-    public const Data = 0;
-    public const Exception = 1;
-    public const Marker = 2;
+    const Data = 0;
+    const Exception = 1;
+    const Marker = 2;
 
     private $name;
     private $value;

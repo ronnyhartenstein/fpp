@@ -17,7 +17,7 @@ use Fpp\InvalidDeriving;
 
 class Uuid extends AbstractDeriving
 {
-    public const VALUE = 'Uuid';
+    const VALUE = 'Uuid';
 
     public function checkDefinition(Definition $definition)
     {

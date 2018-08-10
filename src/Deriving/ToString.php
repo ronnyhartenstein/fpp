@@ -17,7 +17,7 @@ use Fpp\InvalidDeriving;
 
 class ToString extends AbstractDeriving
 {
-    public const VALUE = 'ToString';
+    const VALUE = 'ToString';
 
     public function checkDefinition(Definition $definition)
     {

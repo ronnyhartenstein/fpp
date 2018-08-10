@@ -17,7 +17,7 @@ use Fpp\InvalidDeriving;
 
 class Command extends AbstractDeriving
 {
-    public const VALUE = 'Command';
+    const VALUE = 'Command';
 
     public function checkDefinition(Definition $definition)
     {

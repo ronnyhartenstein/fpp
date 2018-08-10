@@ -17,7 +17,7 @@ use Fpp\InvalidDeriving;
 
 class Enum extends AbstractDeriving
 {
-    public const VALUE = 'Enum';
+    const VALUE = 'Enum';
 
     private $valueMapping;
 

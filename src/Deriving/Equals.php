@@ -17,7 +17,7 @@ use Fpp\InvalidDeriving;
 
 class Equals extends AbstractDeriving
 {
-    public const VALUE = 'Equals';
+    const VALUE = 'Equals';
 
     public function checkDefinition(Definition $definition)
     {

@@ -16,7 +16,7 @@ use Fpp\InvalidDeriving;
 
 class AggregateChanged extends AbstractDeriving
 {
-    public const VALUE = 'AggregateChanged';
+    const VALUE = 'AggregateChanged';
 
     public function checkDefinition(Definition $definition)
     {
