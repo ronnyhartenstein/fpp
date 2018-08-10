@@ -25,7 +25,7 @@ class BuildFromScalarBodyTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_from_scalar_body(): void
+    public function it_builds_from_scalar_body()
     {
         $userId = new Definition(
             DefinitionType::data(),
@@ -52,7 +52,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_from_scalar_body_from_scalar_constructor(): void
+    public function it_builds_from_scalar_body_from_scalar_constructor()
     {
         $userId = new Definition(
             DefinitionType::data(),
@@ -77,7 +77,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_from_string_body_from_object_of_object(): void
+    public function it_builds_from_string_body_from_object_of_object()
     {
         $userId = new Definition(
             DefinitionType::data(),
@@ -116,7 +116,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_from_string_body_from_object_of_object_from_another_namespace(): void
+    public function it_builds_from_string_body_from_object_of_object_from_another_namespace()
     {
         $userId = new Definition(
             DefinitionType::data(),
@@ -155,7 +155,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_from_string_body_from_object_of_object_with_scalar_deriving(): void
+    public function it_builds_from_string_body_from_object_of_object_with_scalar_deriving()
     {
         $userId = new Definition(
             DefinitionType::data(),
@@ -196,7 +196,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_when_no_deriving_given(): void
+    public function it_throws_when_no_deriving_given()
     {
         $userId = new Definition(
             DefinitionType::data(),
@@ -230,7 +230,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_when_unknown_argument_given(): void
+    public function it_throws_when_unknown_argument_given()
     {
         $user = new Definition(
             DefinitionType::data(),
@@ -255,7 +255,7 @@ CODE;
     /**
      * @test
      */
-    public function it_returns_placeholder_if_no_constructor_given(): void
+    public function it_returns_placeholder_if_no_constructor_given()
     {
         $userId = new Definition(
             DefinitionType::data(),

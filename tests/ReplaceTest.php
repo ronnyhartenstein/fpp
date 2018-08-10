@@ -22,7 +22,7 @@ class ReplaceTest extends TestCase
     /**
      * @test
      */
-    public function it_replaces_placeholders_and_cleans_up_formatting(): void
+    public function it_replaces_placeholders_and_cleans_up_formatting()
     {
         $builders = [
             'one' => function () {
@@ -42,10 +42,10 @@ class Foo
     {{one}}
     {{two}}
 
-    public function baz(): void
+    public function baz()
     {
     }
-    public function bar(): void
+    public function bar()
     {
     }
     
@@ -62,11 +62,11 @@ class Foo
     private \$one;
     private \$two;
 
-    public function baz(): void
+    public function baz()
     {
     }
 
-    public function bar(): void
+    public function bar()
     {
     }
 }

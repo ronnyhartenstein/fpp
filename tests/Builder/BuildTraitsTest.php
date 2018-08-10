@@ -26,7 +26,7 @@ class BuildTraitsTest extends TestCase
      * @test
      * @dataProvider derivings
      */
-    public function it_builds_traits_for(Deriving $deriving): void
+    public function it_builds_traits_for(Deriving $deriving)
     {
         $constructor = new Constructor('My\Email', [
             new Argument('key', 'string'),
@@ -46,7 +46,7 @@ class BuildTraitsTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_placeholder_for_aggregate_changed(): void
+    public function it_returns_placeholder_for_aggregate_changed()
     {
         $constructor = new Constructor('My\Email', [
             new Argument('key', 'string'),

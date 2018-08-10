@@ -24,7 +24,7 @@ class BuildArgumentNameTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_argument_name(): void
+    public function it_builds_argument_name()
     {
         $constructor = new Constructor('Foo\Bar', [
             new Argument('some', 'string'),
@@ -44,7 +44,7 @@ class BuildArgumentNameTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_argument_name_from_scalar_constructor(): void
+    public function it_builds_argument_name_from_scalar_constructor()
     {
         $constructor = new Constructor('String');
 
@@ -62,7 +62,7 @@ class BuildArgumentNameTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_placeholder_if_no_constructor_given(): void
+    public function it_returns_placeholder_if_no_constructor_given()
     {
         $constructor = new Constructor('String');
 
@@ -80,7 +80,7 @@ class BuildArgumentNameTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_placeholder_if_constructor_has_not_exactly_one_argument(): void
+    public function it_returns_placeholder_if_constructor_has_not_exactly_one_argument()
     {
         $constructor = new Constructor('Foo\Bar', [
             new Argument('some', 'string'),

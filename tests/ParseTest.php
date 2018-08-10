@@ -50,7 +50,7 @@ class ParseTest extends TestCase
     /**
      * @test
      */
-    public function it_throws_if_file_not_found(): void
+    public function it_throws_if_file_not_found()
     {
         $this->expectException(\RuntimeException::class);
 
@@ -60,7 +60,7 @@ class ParseTest extends TestCase
     /**
      * @test
      */
-    public function it_throws_if_file_not_readable(): void
+    public function it_throws_if_file_not_readable()
     {
         $this->expectException(\RuntimeException::class);
 
@@ -70,7 +70,7 @@ class ParseTest extends TestCase
     /**
      * @test
      */
-    public function it_parses_empty_file(): void
+    public function it_parses_empty_file()
     {
         $contents = '';
         $collection = parse($this->createDefaultFile($contents), $this->derivingMap);
@@ -81,7 +81,7 @@ class ParseTest extends TestCase
     /**
      * @test
      */
-    public function it_parses_file_with_only_whitespace(): void
+    public function it_parses_file_with_only_whitespace()
     {
         $contents = '     ';
         $collection = parse($this->createDefaultFile($contents), $this->derivingMap);
@@ -92,7 +92,7 @@ class ParseTest extends TestCase
     /**
      * @test
      */
-    public function it_detects_bad_namespace_declaration(): void
+    public function it_detects_bad_namespace_declaration()
     {
         $this->expectException(ParseError::class);
 
@@ -103,7 +103,7 @@ class ParseTest extends TestCase
     /**
      * @test
      */
-    public function it_detects_nested_namespace_declaration(): void
+    public function it_detects_nested_namespace_declaration()
     {
         $this->expectException(ParseError::class);
 
@@ -114,7 +114,7 @@ class ParseTest extends TestCase
     /**
      * @test
      */
-    public function it_detects_missing_namespace_end(): void
+    public function it_detects_missing_namespace_end()
     {
         $this->expectException(ParseError::class);
 
@@ -125,7 +125,7 @@ class ParseTest extends TestCase
     /**
      * @test
      */
-    public function it_detects_wrong_namespace_declaration(): void
+    public function it_detects_wrong_namespace_declaration()
     {
         $this->expectException(ParseError::class);
         $contents = <<<CODE
@@ -137,7 +137,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_string_wrapped_object(): void
+    public function it_parses_string_wrapped_object()
     {
         $contents = <<<CODE
 namespace Something;
@@ -158,7 +158,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_when_no_namespace_given(): void
+    public function it_throws_when_no_namespace_given()
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('Namespace cannot be empty string');
@@ -172,7 +172,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_from_multiple_namespaces(): void
+    public function it_parses_from_multiple_namespaces()
     {
         $contents = <<<CODE
 namespace Foo {
@@ -191,7 +191,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_wrong_declaration_of_second_namespaces(): void
+    public function it_detects_wrong_declaration_of_second_namespaces()
     {
         $this->expectException(ParseError::class);
 
@@ -207,7 +207,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_missing_end_of_declaration(): void
+    public function it_detects_missing_end_of_declaration()
     {
         $this->expectException(ParseError::class);
 
@@ -221,7 +221,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_missing_constructor(): void
+    public function it_detects_missing_constructor()
     {
         $this->expectException(ParseError::class);
 
@@ -235,7 +235,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_missing_data_name(): void
+    public function it_detects_missing_data_name()
     {
         $this->expectException(ParseError::class);
 
@@ -249,7 +249,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_missing_data_assignment(): void
+    public function it_detects_missing_data_assignment()
     {
         $this->expectException(ParseError::class);
 
@@ -263,7 +263,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_missing_data_assignment_symbol(): void
+    public function it_detects_missing_data_assignment_symbol()
     {
         $this->expectException(ParseError::class);
 
@@ -277,7 +277,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_wrong_syntax(): void
+    public function it_detects_wrong_syntax()
     {
         $this->expectException(ParseError::class);
 
@@ -290,7 +290,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_wrong_syntax2(): void
+    public function it_detects_wrong_syntax2()
     {
         $this->expectException(ParseError::class);
 
@@ -303,7 +303,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_object_with_two_constructors(): void
+    public function it_parses_object_with_two_constructors()
     {
         $contents = <<<CODE
 namespace Something;
@@ -328,7 +328,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_multiple_objects(): void
+    public function it_parses_multiple_objects()
     {
         $contents = <<<CODE
 namespace Something;
@@ -359,7 +359,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_wrong_definitions(): void
+    public function it_detects_wrong_definitions()
     {
         $this->expectException(ParseError::class);
         $contents = <<<CODE
@@ -372,7 +372,7 @@ CODE;
     /**
      * @test
      */
-    public function it_reads_constructor_arguments(): void
+    public function it_reads_constructor_arguments()
     {
         $contents = <<<CODE
 namespace Something;
@@ -398,7 +398,7 @@ CODE;
     /**
      * @test
      */
-    public function it_reads_constructor_arguments_without_type_hints(): void
+    public function it_reads_constructor_arguments_without_type_hints()
     {
         $contents = <<<CODE
 namespace Something;
@@ -424,7 +424,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_constructors_with_different_amount_of_arguments(): void
+    public function it_parses_constructors_with_different_amount_of_arguments()
     {
         $contents = <<<CODE
 namespace Something;
@@ -459,7 +459,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_constructors_with_arguments_and_without(): void
+    public function it_parses_constructors_with_arguments_and_without()
     {
         $contents = <<<CODE
 namespace Something;
@@ -489,7 +489,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_constructor_arguments_with_subnamespace(): void
+    public function it_parses_constructor_arguments_with_subnamespace()
     {
         $contents = <<<CODE
 namespace Something;
@@ -511,7 +511,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_wrong_type_declaration_on_constructor_arguments(): void
+    public function it_detects_wrong_type_declaration_on_constructor_arguments()
     {
         $this->expectException(ParseError::class);
 
@@ -526,7 +526,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_constructor_arguments_with_root_namespace(): void
+    public function it_parses_constructor_arguments_with_root_namespace()
     {
         $contents = <<<CODE
 namespace Something;
@@ -548,7 +548,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_namespaced_constructors(): void
+    public function it_parses_namespaced_constructors()
     {
         $contents = <<<CODE
 namespace My {
@@ -568,7 +568,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_namespaced_constructors_2(): void
+    public function it_parses_namespaced_constructors_2()
     {
         $contents = <<<CODE
 namespace My {
@@ -593,7 +593,7 @@ CODE;
     /**
      * @test
      */
-    public function it_allows_lower_case_namespace_data_types_constructors_and_type_hints(): void
+    public function it_allows_lower_case_namespace_data_types_constructors_and_type_hints()
     {
         $contents = <<<CODE
 namespace my {
@@ -618,7 +618,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_invalid_constructor_argument_definitions(): void
+    public function it_detects_invalid_constructor_argument_definitions()
     {
         $this->expectException(ParseError::class);
 
@@ -633,7 +633,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_derivings(): void
+    public function it_parses_derivings()
     {
         $contents = <<<CODE
 namespace Something;
@@ -653,7 +653,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_derivings_without_message_name_for_prooph_messages(): void
+    public function it_parses_derivings_without_message_name_for_prooph_messages()
     {
         $contents = <<<CODE
 namespace Something;
@@ -673,7 +673,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_derivings_with_message_name_for_prooph_messages(): void
+    public function it_parses_derivings_with_message_name_for_prooph_messages()
     {
         $contents = <<<CODE
 namespace Something;
@@ -693,7 +693,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_on_derivings_with_invalid_syntax_for_message_name_for_prooph_messages(): void
+    public function it_throws_on_derivings_with_invalid_syntax_for_message_name_for_prooph_messages()
     {
         $this->expectException(ParseError::class);
 
@@ -708,7 +708,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_wrong_deriving_syntax(): void
+    public function it_detects_wrong_deriving_syntax()
     {
         $this->expectException(ParseError::class);
 
@@ -723,7 +723,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_on_unknown_derivings(): void
+    public function it_throws_on_unknown_derivings()
     {
         $this->expectException(ParseError::class);
 
@@ -738,7 +738,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_a_simple_condition(): void
+    public function it_parses_a_simple_condition()
     {
         $contents = <<<CODE
 namespace Something;
@@ -761,7 +761,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_a_simple_condition_2(): void
+    public function it_parses_a_simple_condition_2()
     {
         $contents = <<<CODE
 namespace Something;
@@ -783,7 +783,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_multiple_conditions(): void
+    public function it_parses_multiple_conditions()
     {
         $contents = <<<CODE
 namespace Something;
@@ -812,7 +812,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_wrong_condition_syntax(): void
+    public function it_detects_wrong_condition_syntax()
     {
         $this->expectException(ParseError::class);
 
@@ -828,7 +828,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_wrong_condition_syntax_2(): void
+    public function it_detects_wrong_condition_syntax_2()
     {
         $this->expectException(ParseError::class);
 
@@ -844,7 +844,7 @@ CODE;
     /**
      * @test
      */
-    public function it_detects_wrong_condition_syntax_3(): void
+    public function it_detects_wrong_condition_syntax_3()
     {
         $this->expectException(ParseError::class);
 
@@ -860,7 +860,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_multiple_conditions_for_multiple_constructors(): void
+    public function it_parses_multiple_conditions_for_multiple_constructors()
     {
         $contents = <<<CODE
 namespace Something;
@@ -897,7 +897,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_multiple_conditions_for_multiple_constructors_with_defaults(): void
+    public function it_parses_multiple_conditions_for_multiple_constructors_with_defaults()
     {
         $contents = <<<CODE
 namespace Something;
@@ -928,7 +928,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_derivings_and_conditions(): void
+    public function it_parses_derivings_and_conditions()
     {
         $contents = <<<CODE
 namespace Something;
@@ -964,7 +964,7 @@ CODE;
     /**
      * @test
      */
-    public function it_allows_comments(): void
+    public function it_allows_comments()
     {
         $contents = <<<CODE
 namespace Something;
@@ -1005,7 +1005,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_comma_missing_in_argument_list(): void
+    public function it_throws_exception_when_comma_missing_in_argument_list()
     {
         $this->expectException(ParseError::class);
 
@@ -1020,7 +1020,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_comma_missing_in_argument_list_without_type_hints(): void
+    public function it_throws_exception_when_comma_missing_in_argument_list_without_type_hints()
     {
         $this->expectException(ParseError::class);
 
@@ -1035,7 +1035,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_optional_parameters_from_root_namespace(): void
+    public function it_parses_optional_parameters_from_root_namespace()
     {
         $contents = <<<CODE
 namespace Something {
@@ -1056,7 +1056,7 @@ CODE;
      * @test
      * @dataProvider scalarListTypes
      */
-    public function it_parses_scalar_list_constructors(string $scalarListType): void
+    public function it_parses_scalar_list_constructors(string $scalarListType)
     {
         $contents = <<<CODE
 namespace Something {
@@ -1073,7 +1073,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_enums_with_value_mapping(): void
+    public function it_parses_enums_with_value_mapping()
     {
         $contents = <<<CODE
 namespace Foo;

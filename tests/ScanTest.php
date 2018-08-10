@@ -44,7 +44,7 @@ class ScanTest extends TestCase
     /**
      * @test
      */
-    public function it_detects_readable_file(): void
+    public function it_detects_readable_file()
     {
         $list = scan($this->root->getChild('foo/Bar/Baz/fpp2.fpp')->url());
 
@@ -55,7 +55,7 @@ class ScanTest extends TestCase
     /**
      * @test
      */
-    public function it_detects_all_readable_files_in_directory(): void
+    public function it_detects_all_readable_files_in_directory()
     {
         $list = scan($this->root->url());
 
@@ -71,7 +71,7 @@ class ScanTest extends TestCase
     /**
      * @test
      */
-    public function it_throws_if_target_is_not_readable(): void
+    public function it_throws_if_target_is_not_readable()
     {
         $this->expectException(\RuntimeException::class);
 
@@ -81,7 +81,7 @@ class ScanTest extends TestCase
     /**
      * @test
      */
-    public function it_throws_if_no_results_found(): void
+    public function it_throws_if_no_results_found()
     {
         $this->expectException(\RuntimeException::class);
 

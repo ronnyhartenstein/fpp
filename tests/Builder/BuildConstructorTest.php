@@ -25,7 +25,7 @@ class BuildConstructorTest extends TestCase
     /**
      * @test
      */
-    public function it_generates_properties_and_constructor_incl_conditions(): void
+    public function it_generates_properties_and_constructor_incl_conditions()
     {
         $name = new Definition(
             DefinitionType::data(),

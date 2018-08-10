@@ -25,7 +25,7 @@ class BuildPropertiesTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_properties(): void
+    public function it_builds_properties()
     {
         $argument1 = new Argument('name', 'string');
         $argument2 = new Argument('age', 'int');
@@ -48,7 +48,7 @@ STRING;
     /**
      * @test
      */
-    public function it_builds_properties_for_command(): void
+    public function it_builds_properties_for_command()
     {
         $argument1 = new Argument('name', 'string');
         $argument2 = new Argument('age', 'int');
@@ -70,7 +70,7 @@ STRING;
     /**
      * @test
      */
-    public function it_builds_properties_for_command_incl_message_name(): void
+    public function it_builds_properties_for_command_incl_message_name()
     {
         $argument1 = new Argument('name', 'string');
         $argument2 = new Argument('age', 'int');
@@ -92,7 +92,7 @@ STRING;
     /**
      * @test
      */
-    public function it_builds_properties_for_domain_event(): void
+    public function it_builds_properties_for_domain_event()
     {
         $argument1 = new Argument('name', 'string');
         $argument2 = new Argument('age', 'int');
@@ -117,7 +117,7 @@ STRING;
     /**
      * @test
      */
-    public function it_builds_properties_for_domain_aggregate_changed(): void
+    public function it_builds_properties_for_domain_aggregate_changed()
     {
         $argument1 = new Argument('name', 'string');
         $argument2 = new Argument('age', 'int');
@@ -144,7 +144,7 @@ STRING;
     /**
      * @test
      */
-    public function it_returns_placeholder_when_constructor_missing(): void
+    public function it_returns_placeholder_when_constructor_missing()
     {
         $argument1 = new Argument('name', 'string');
         $argument2 = new Argument('age', 'int');

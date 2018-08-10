@@ -48,7 +48,7 @@
         return $self;
     }
 
-    protected function setAggregateId(string $aggregateId): void
+    protected function setAggregateId(string $aggregateId)
     {
         if ('' === $aggregateId) {
             throw new \InvalidArgumentException('Aggregate id cannot be an empty string');
@@ -57,12 +57,12 @@
         $this->metadata['_aggregate_id'] = $aggregateId;
     }
 
-    protected function setVersion(int $version): void
+    protected function setVersion(int $version)
     {
         $this->metadata['_aggregate_version'] = $version;
     }
 
-    protected function setPayload(array $payload): void
+    protected function setPayload(array $payload)
     {
         {{payload_validation}}
         $this->payload = $payload;

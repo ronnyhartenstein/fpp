@@ -24,7 +24,7 @@ class BuildArgumentsTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_arguments(): void
+    public function it_builds_arguments()
     {
         $constructor = new Constructor('My\UserRegistered', [
             new Argument('id', 'My\UserId'),

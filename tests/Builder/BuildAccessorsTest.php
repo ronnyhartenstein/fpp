@@ -25,7 +25,7 @@ class BuildAccessorsTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_payload_accessors(): void
+    public function it_builds_payload_accessors()
     {
         $argument1 = new Argument('name', 'string');
         $argument2 = new Argument('age', 'int', true);
@@ -59,7 +59,7 @@ STRING;
     /**
      * @test
      */
-    public function it_builds_event_accessors(): void
+    public function it_builds_event_accessors()
     {
         $argument1 = new Argument('name', 'string');
         $argument2 = new Argument('age', 'int', true);
@@ -104,7 +104,7 @@ STRING;
     /**
      * @test
      */
-    public function it_builds_accessors(): void
+    public function it_builds_accessors()
     {
         $argument1 = new Argument('name', 'string');
         $argument2 = new Argument('age', 'int', true);

@@ -35,7 +35,7 @@ class DefinitionCollection
         }
     }
 
-    public function addDefinition(Definition $definition): void
+    public function addDefinition(Definition $definition)
     {
         if (isset($this->registry[$definition->namespace()][$definition->name()])) {
             throw new \InvalidArgumentException(\sprintf(

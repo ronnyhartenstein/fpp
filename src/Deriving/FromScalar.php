@@ -20,7 +20,7 @@ class FromScalar extends AbstractDeriving
 {
     public const VALUE = 'FromScalar';
 
-    public function checkDefinition(Definition $definition): void
+    public function checkDefinition(Definition $definition)
     {
         foreach ($definition->derivings() as $deriving) {
             if (\in_array((string) $deriving, $this->forbidsDerivings(), true)) {

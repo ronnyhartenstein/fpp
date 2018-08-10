@@ -29,7 +29,7 @@ class DerivingTest extends TestCase
     /**
      * @test
      */
-    public function it_delivers_forbidden_derivings_and_to_string(): void
+    public function it_delivers_forbidden_derivings_and_to_string()
     {
         $derivingMap = defaultDerivingMap();
 
@@ -41,7 +41,7 @@ class DerivingTest extends TestCase
     /**
      * @test
      */
-    public function from_scalar_requires_excatly_one_constructor(): void
+    public function from_scalar_requires_excatly_one_constructor()
     {
         $this->expectException(InvalidDeriving::class);
         $this->expectExceptionMessage('Invalid deriving on Foo\Bar, deriving FromScalar expects exactly one constructor');
@@ -56,7 +56,7 @@ class DerivingTest extends TestCase
     /**
      * @test
      */
-    public function enum_requires_at_least_two_constructors(): void
+    public function enum_requires_at_least_two_constructors()
     {
         $this->expectException(InvalidDeriving::class);
         $this->expectExceptionMessage('Invalid deriving on Foo\Bar, deriving Enum expects at least two constructors');
@@ -70,7 +70,7 @@ class DerivingTest extends TestCase
     /**
      * @test
      */
-    public function enum_requires_no_constructor_arguments(): void
+    public function enum_requires_no_constructor_arguments()
     {
         $this->expectException(InvalidDeriving::class);
         $this->expectExceptionMessage('Invalid deriving on Foo\Bar, deriving Enum expects exactly zero constructor arguments');
@@ -89,7 +89,7 @@ class DerivingTest extends TestCase
     /**
      * @test
      */
-    public function uuid_requires_no_constructor_arguments(): void
+    public function uuid_requires_no_constructor_arguments()
     {
         $this->expectException(InvalidDeriving::class);
         $this->expectExceptionMessage('Invalid deriving on Foo\Bar, deriving Uuid expects exactly zero constructor arguments');
@@ -106,7 +106,7 @@ class DerivingTest extends TestCase
      * @test
      * @dataProvider derivingsRequiringAtLeastOneConstructorArgument
      */
-    public function deriving_expects_at_least_one_constructor_argument(Deriving $deriving): void
+    public function deriving_expects_at_least_one_constructor_argument(Deriving $deriving)
     {
         $this->expectException(InvalidDeriving::class);
         $this->expectExceptionMessage(\sprintf(
@@ -144,7 +144,7 @@ class DerivingTest extends TestCase
      * @test
      * @dataProvider derivingsRequiringNoConditions
      */
-    public function deriving_expects_no_conditions(Deriving $deriving): void
+    public function deriving_expects_no_conditions(Deriving $deriving)
     {
         $this->expectException(InvalidDeriving::class);
         $this->expectExceptionMessage(\sprintf(
@@ -192,7 +192,7 @@ class DerivingTest extends TestCase
     /**
      * @test
      */
-    public function enum_value_mapping_must_match_constructors(): void
+    public function enum_value_mapping_must_match_constructors()
     {
         $this->expectException(InvalidDeriving::class);
         $this->expectExceptionMessage('Invalid deriving on Foo\Bam, enum value mapping does not match constructors');
@@ -208,7 +208,7 @@ class DerivingTest extends TestCase
      * @test
      * @dataProvider derivingsRequiringNoNullableOrListForFirstArgument
      */
-    public function deriving_expects_no_nullable_first_argument(Deriving $deriving): void
+    public function deriving_expects_no_nullable_first_argument(Deriving $deriving)
     {
         $this->expectException(InvalidDeriving::class);
         $this->expectExceptionMessage(\sprintf(
@@ -227,7 +227,7 @@ class DerivingTest extends TestCase
      * @test
      * @dataProvider derivingsRequiringNoNullableOrListForFirstArgument
      */
-    public function deriving_expects_no_list_first_argument(Deriving $deriving): void
+    public function deriving_expects_no_list_first_argument(Deriving $deriving)
     {
         $this->expectException(InvalidDeriving::class);
         $this->expectExceptionMessage(\sprintf(

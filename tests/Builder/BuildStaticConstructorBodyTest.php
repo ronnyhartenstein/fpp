@@ -25,7 +25,7 @@ class BuildStaticConstructorBodyTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_static_constructor_body_converting_to_payload_without_first_argument(): void
+    public function it_builds_static_constructor_body_converting_to_payload_without_first_argument()
     {
         $userId = new Definition(
             DefinitionType::data(),
@@ -83,7 +83,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_static_constructor_body_converting_to_payload_with_first_argument(): void
+    public function it_builds_static_constructor_body_converting_to_payload_with_first_argument()
     {
         $userId = new Definition(
             DefinitionType::data(),

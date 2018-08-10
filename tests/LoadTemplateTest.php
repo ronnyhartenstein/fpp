@@ -24,7 +24,7 @@ class LoadTemplateTest extends TestCase
     /**
      * @test
      */
-    public function it_loads_default_class_template(): void
+    public function it_loads_default_class_template()
     {
         $constructor = new Constructor('Foo\Bar');
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Bar', [$constructor]);
@@ -51,7 +51,7 @@ TEMPLATE;
     /**
      * @test
      */
-    public function it_loads_template_for_string_constructor(): void
+    public function it_loads_template_for_string_constructor()
     {
         $constructor = new Constructor('String');
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Bar', [$constructor]);
@@ -90,7 +90,7 @@ TEMPLATE;
     /**
      * @test
      */
-    public function it_loads_class_template_with_deriving_body_templates(): void
+    public function it_loads_class_template_with_deriving_body_templates()
     {
         $constructor = new Constructor('Foo\Bar', [new Argument('name', 'string')]);
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Bar', [$constructor], [new Deriving\ToString(), new Deriving\FromString()]);
@@ -131,7 +131,7 @@ TEMPLATE;
     /**
      * @test
      */
-    public function it_loads_body_template_for_base_enum_class(): void
+    public function it_loads_body_template_for_base_enum_class()
     {
         $constructor1 = new Constructor('Foo\Blue');
         $constructor2 = new Constructor('Foo\Red');
@@ -215,7 +215,7 @@ TEMPLATE;
     /**
      * @test
      */
-    public function it_loads_body_template_for_scalar_list_constructors(): void
+    public function it_loads_body_template_for_scalar_list_constructors()
     {
         $constructor = new Constructor('Float[]');
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Color', [$constructor]);

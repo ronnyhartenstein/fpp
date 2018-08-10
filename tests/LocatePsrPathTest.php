@@ -30,7 +30,7 @@ class LocatePsrPathTest extends TestCase
     /**
      * @test
      */
-    public function it_locates_psr4_path_from_constructor(): void
+    public function it_locates_psr4_path_from_constructor()
     {
         $constructor = new Constructor('Foo\Person');
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Person', [$constructor]);
@@ -41,7 +41,7 @@ class LocatePsrPathTest extends TestCase
     /**
      * @test
      */
-    public function it_locates_psr0_path_from_constructor(): void
+    public function it_locates_psr0_path_from_constructor()
     {
         $constructor = new Constructor('Bar\Person');
         $definition = new Definition(DefinitionType::data(), 'Bar', 'Person', [$constructor]);
@@ -52,7 +52,7 @@ class LocatePsrPathTest extends TestCase
     /**
      * @test
      */
-    public function it_locates_psr4_path_from_definition(): void
+    public function it_locates_psr4_path_from_definition()
     {
         $constructor = new Constructor('Foo\Person');
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Person', [$constructor]);
@@ -63,7 +63,7 @@ class LocatePsrPathTest extends TestCase
     /**
      * @test
      */
-    public function it_locates_psr0_path_from_definition(): void
+    public function it_locates_psr0_path_from_definition()
     {
         $constructor = new Constructor('Bar\Person');
         $definition = new Definition(DefinitionType::data(), 'Bar', 'Person', [$constructor]);
@@ -74,7 +74,7 @@ class LocatePsrPathTest extends TestCase
     /**
      * @test
      */
-    public function it_throws_when_unknown_prefix_requested(): void
+    public function it_throws_when_unknown_prefix_requested()
     {
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage('Could not find psr-autoloading path for Unknown\Person');
@@ -88,7 +88,7 @@ class LocatePsrPathTest extends TestCase
     /**
      * @test
      */
-    public function it_locates_psr4_path_from_definition_when_scalar_constructor_given(): void
+    public function it_locates_psr4_path_from_definition_when_scalar_constructor_given()
     {
         $constructor = new Constructor('String');
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Person', [$constructor]);
@@ -99,7 +99,7 @@ class LocatePsrPathTest extends TestCase
     /**
      * @test
      */
-    public function it_locates_psr0_path_from_definition_when_scalar_constructor_given(): void
+    public function it_locates_psr0_path_from_definition_when_scalar_constructor_given()
     {
         $constructor = new Constructor('String');
         $definition = new Definition(DefinitionType::data(), 'Bar', 'Person', [$constructor]);

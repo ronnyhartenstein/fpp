@@ -35,7 +35,7 @@ class DumpTest extends TestCase
      */
     private $dump;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->root = vfsStream::setup();
         $root = $this->root->url();
@@ -53,7 +53,7 @@ class DumpTest extends TestCase
             return locatePsrPath($prefixesPsr4, [], $definition, $constructor);
         };
 
-        $this->dump = function (DefinitionCollection $collection) use ($locatePsrPath): void {
+        $this->dump = function (DefinitionCollection $collection) use ($locatePsrPath) {
             dump($collection, $locatePsrPath, loadTemplate, replace);
         };
     }
@@ -61,7 +61,7 @@ class DumpTest extends TestCase
     /**
      * @test
      */
-    public function it_dumps_simple_class(): void
+    public function it_dumps_simple_class()
     {
         $dump = $this->dump;
 
@@ -101,7 +101,7 @@ CODE;
     /**
      * @test
      */
-    public function it_dumps_class_incl_its_child(): void
+    public function it_dumps_class_incl_its_child()
     {
         $dump = $this->dump;
 

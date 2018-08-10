@@ -78,19 +78,19 @@ function parse(string $filename, array $derivingMap): DefinitionCollection
         return $token;
     };
 
-    $requireWhitespace = function (array $token) use ($filename): void {
+    $requireWhitespace = function (array $token) use ($filename) {
         if ($token[0] !== T_WHITESPACE) {
             throw ParseError::unexpectedTokenFound(' ', $token, $filename);
         }
     };
 
-    $requireString = function (array $token) use ($filename): void {
+    $requireString = function (array $token) use ($filename) {
         if ($token[0] !== T_STRING) {
             throw ParseError::unexpectedTokenFound('T_STRING', $token, $filename);
         }
     };
 
-    $requireVariable = function (array $token) use ($filename): void {
+    $requireVariable = function (array $token) use ($filename) {
         if ($token[0] !== T_VARIABLE) {
             throw ParseError::unexpectedTokenFound('T_VARIABLE', $token, $filename);
         }

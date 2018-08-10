@@ -3,7 +3,7 @@
         {{static_constructor_body}}
     }
 
-    protected function setPayload(array $payload): void
+    protected function setPayload(array $payload)
     {
         {{payload_validation}}
         $this->payload = $payload;

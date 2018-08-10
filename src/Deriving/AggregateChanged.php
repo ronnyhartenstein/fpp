@@ -18,7 +18,7 @@ class AggregateChanged extends AbstractDeriving
 {
     public const VALUE = 'AggregateChanged';
 
-    public function checkDefinition(Definition $definition): void
+    public function checkDefinition(Definition $definition)
     {
         if (0 !== \count($definition->conditions())) {
             throw InvalidDeriving::noConditionsExpected($definition, self::VALUE);

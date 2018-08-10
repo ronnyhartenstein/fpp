@@ -16,7 +16,7 @@ interface Deriving
     /**
      * @throws InvalidDeriving
      */
-    public function checkDefinition(Definition $definition): void;
+    public function checkDefinition(Definition $definition);
 
     public function __toString(): string;
 

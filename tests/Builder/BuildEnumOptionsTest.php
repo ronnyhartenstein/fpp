@@ -25,7 +25,7 @@ class BuildEnumOptionsTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_enum_options(): void
+    public function it_builds_enum_options()
     {
         $constructor1 = new Constructor('My\Red');
         $constructor2 = new Constructor('My\Blue');
@@ -49,7 +49,7 @@ EXPECTED;
     /**
      * @test
      */
-    public function it_builds_enum_options_with_value_mapping(): void
+    public function it_builds_enum_options_with_value_mapping()
     {
         $constructor1 = new Constructor('My\Red');
         $constructor2 = new Constructor('My\Blue');
@@ -80,7 +80,7 @@ EXPECTED;
     /**
      * @test
      */
-    public function it_does_not_allow_enum_options_with_namespaces(): void
+    public function it_does_not_allow_enum_options_with_namespaces()
     {
         $this->expectException(InvalidDeriving::class);
 

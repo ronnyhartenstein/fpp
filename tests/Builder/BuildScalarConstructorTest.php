@@ -24,7 +24,7 @@ class BuildScalarConstructorTest extends TestCase
      * @test
      * @dataProvider scalarTypeProvider
      */
-    public function it_builds_scalar_constructor(string $type): void
+    public function it_builds_scalar_constructor(string $type)
     {
         $constructor = new Constructor($type);
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Bar', [$constructor]);
@@ -36,7 +36,7 @@ class BuildScalarConstructorTest extends TestCase
      * @test
      * @dataProvider scalarTypeProvider
      */
-    public function it_builds_scalar_constructor_from_payload(string $type): void
+    public function it_builds_scalar_constructor_from_payload(string $type)
     {
         $constructor = new Constructor($type);
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Bar', [$constructor]);

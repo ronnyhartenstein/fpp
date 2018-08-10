@@ -25,7 +25,7 @@ class BuildToScalarBodyTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_to_scalar_body(): void
+    public function it_builds_to_scalar_body()
     {
         $constructor1 = new Constructor('Int');
 

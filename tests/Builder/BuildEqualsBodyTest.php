@@ -25,7 +25,7 @@ class BuildEqualsBodyTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_equals_body(): void
+    public function it_builds_equals_body()
     {
         $arguments = [];
         $arguments[] = new Argument('name', 'string');

@@ -25,7 +25,7 @@ class BuildToArrayBodyTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_to_array_body(): void
+    public function it_builds_to_array_body()
     {
         $userId = new Definition(
             DefinitionType::data(),

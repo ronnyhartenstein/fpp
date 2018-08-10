@@ -25,7 +25,7 @@ class BuildMessageNameTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_message_name_from_provided_string(): void
+    public function it_builds_message_name_from_provided_string()
     {
         $constructor = new Constructor('Hell\Yeah', [new Argument('id', 'string')]);
         $definition = new Definition(DefinitionType::data(), 'Hell', 'Yeah', [$constructor], [new Deriving\Command()], [], 'tadaa');
@@ -36,7 +36,7 @@ class BuildMessageNameTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_message_name_from_class_name(): void
+    public function it_builds_message_name_from_class_name()
     {
         $constructor = new Constructor('Hell\Yeah', [new Argument('id', 'string')]);
         $definition = new Definition(DefinitionType::data(), 'Hell', 'Yeah', [$constructor], [new Deriving\Query()]);

@@ -25,7 +25,7 @@ class BuildMethodBodyFromPayloadTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_argument_name_if_argument_has_no_type(): void
+    public function it_returns_argument_name_if_argument_has_no_type()
     {
         $argument = new Argument('name');
         $constructor = new Constructor('Foo\Bar', [$argument]);
@@ -38,7 +38,7 @@ class BuildMethodBodyFromPayloadTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_argument_name_if_argument_is_scalar(): void
+    public function it_returns_argument_name_if_argument_is_scalar()
     {
         $argument = new Argument('name', 'string');
         $constructor = new Constructor('Foo\Bar', [$argument]);
@@ -51,7 +51,7 @@ class BuildMethodBodyFromPayloadTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_from_string_constructor_deriving_enum(): void
+    public function it_returns_from_string_constructor_deriving_enum()
     {
         $argument = new Argument('name', 'Baz\Something');
         $constructor = new Constructor('Foo\Bar', [$argument]);
@@ -69,7 +69,7 @@ class BuildMethodBodyFromPayloadTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_from_string_constructor_deriving_from_string(): void
+    public function it_returns_from_string_constructor_deriving_from_string()
     {
         $argument = new Argument('name', 'Baz\Something');
         $constructor = new Constructor('Foo\Bar', [$argument]);
@@ -86,7 +86,7 @@ class BuildMethodBodyFromPayloadTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_from_string_constructor_deriving_uuid(): void
+    public function it_returns_from_string_constructor_deriving_uuid()
     {
         $argument = new Argument('name', 'Baz\Something');
         $constructor = new Constructor('Foo\Bar', [$argument]);
@@ -103,7 +103,7 @@ class BuildMethodBodyFromPayloadTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_from_string_constructor_deriving_from_scalar(): void
+    public function it_returns_from_string_constructor_deriving_from_scalar()
     {
         $argument = new Argument('name', 'Foo\Something');
         $constructor = new Constructor('Foo\Bar', [$argument]);
@@ -120,7 +120,7 @@ class BuildMethodBodyFromPayloadTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_from_string_constructor_deriving_from_array(): void
+    public function it_returns_from_string_constructor_deriving_from_array()
     {
         $argument = new Argument('name', 'Of\Something');
         $constructor = new Constructor('Foo\Bar', [$argument]);
@@ -137,7 +137,7 @@ class BuildMethodBodyFromPayloadTest extends TestCase
     /**
      * @test
      */
-    public function it_cannot_build_unknown_constructors(): void
+    public function it_cannot_build_unknown_constructors()
     {
         $this->expectException(\RuntimeException::class);
 
@@ -153,7 +153,7 @@ class BuildMethodBodyFromPayloadTest extends TestCase
     /**
      * @test
      */
-    public function it_cannot_build_without_any_deriving(): void
+    public function it_cannot_build_without_any_deriving()
     {
         $this->expectException(\RuntimeException::class);
 
@@ -172,7 +172,7 @@ class BuildMethodBodyFromPayloadTest extends TestCase
     /**
      * @test
      */
-    public function it_can_build_with_cache_nullable_list(): void
+    public function it_can_build_with_cache_nullable_list()
     {
         $argument = new Argument('name', 'Foo\Arg', true, true);
 
@@ -216,7 +216,7 @@ CODE;
     /**
      * @test
      */
-    public function it_can_build_without_cache_nullable_list(): void
+    public function it_can_build_without_cache_nullable_list()
     {
         $argument = new Argument('name', 'Foo\Arg', true, true);
 
@@ -260,7 +260,7 @@ CODE;
     /**
      * @test
      */
-    public function it_can_build_with_cache_not_nullable_list(): void
+    public function it_can_build_with_cache_not_nullable_list()
     {
         $argument = new Argument('name', 'Foo\Arg', false, true);
 
@@ -304,7 +304,7 @@ CODE;
     /**
      * @test
      */
-    public function it_can_build_without_cache_not_nullable_list(): void
+    public function it_can_build_without_cache_not_nullable_list()
     {
         $argument = new Argument('name', 'Foo\Arg', false, true);
 
@@ -344,7 +344,7 @@ CODE;
     /**
      * @test
      */
-    public function it_can_build_with_cache_nullable_no_list(): void
+    public function it_can_build_with_cache_nullable_no_list()
     {
         $argument = new Argument('name', 'Foo\Arg', true, false);
 
@@ -382,7 +382,7 @@ CODE;
     /**
      * @test
      */
-    public function it_can_build_without_cache_nullable_no_list(): void
+    public function it_can_build_without_cache_nullable_no_list()
     {
         $argument = new Argument('name', 'Foo\Arg', true, false);
 
@@ -414,7 +414,7 @@ CODE;
     /**
      * @test
      */
-    public function it_can_build_with_cache_no_nullable_no_list(): void
+    public function it_can_build_with_cache_no_nullable_no_list()
     {
         $argument = new Argument('name', 'Foo\Arg', false, false);
 
@@ -452,7 +452,7 @@ CODE;
     /**
      * @test
      */
-    public function it_can_build_without_cache_no_nullable_no_list(): void
+    public function it_can_build_without_cache_no_nullable_no_list()
     {
         $argument = new Argument('name', 'Foo\Arg', false, false);
 

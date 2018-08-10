@@ -25,7 +25,7 @@ class BuildMethodBodyFromAggregateIdTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_argument_name_if_argument_has_no_type(): void
+    public function it_returns_argument_name_if_argument_has_no_type()
     {
         $argument = new Argument('name');
         $constructor = new Constructor('Foo\Bar', [$argument]);
@@ -38,7 +38,7 @@ class BuildMethodBodyFromAggregateIdTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_argument_name_if_argument_is_scalar(): void
+    public function it_returns_argument_name_if_argument_is_scalar()
     {
         $argument = new Argument('name', 'string');
         $constructor = new Constructor('Foo\Bar', [$argument]);
@@ -51,7 +51,7 @@ class BuildMethodBodyFromAggregateIdTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_from_string_constructor_deriving_from_string(): void
+    public function it_returns_from_string_constructor_deriving_from_string()
     {
         $argument = new Argument('name', 'Baz\Something');
         $constructor = new Constructor('Foo\Bar', [$argument]);
@@ -68,7 +68,7 @@ class BuildMethodBodyFromAggregateIdTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_from_string_constructor_deriving_from_scalar(): void
+    public function it_returns_from_string_constructor_deriving_from_scalar()
     {
         $argument = new Argument('name', 'Foo\Something');
         $constructor = new Constructor('Foo\Bar', [$argument]);
@@ -85,7 +85,7 @@ class BuildMethodBodyFromAggregateIdTest extends TestCase
     /**
      * @test
      */
-    public function it_cannot_build_unknown_constructors(): void
+    public function it_cannot_build_unknown_constructors()
     {
         $this->expectException(\RuntimeException::class);
 
@@ -101,7 +101,7 @@ class BuildMethodBodyFromAggregateIdTest extends TestCase
     /**
      * @test
      */
-    public function it_cannot_build_without_any_deriving(): void
+    public function it_cannot_build_without_any_deriving()
     {
         $this->expectException(\RuntimeException::class);
 
@@ -120,7 +120,7 @@ class BuildMethodBodyFromAggregateIdTest extends TestCase
     /**
      * @test
      */
-    public function it_can_build_with_cache(): void
+    public function it_can_build_with_cache()
     {
         $argument = new Argument('name', 'Foo\Arg');
 
@@ -158,7 +158,7 @@ CODE;
     /**
      * @test
      */
-    public function it_can_build_without_cache(): void
+    public function it_can_build_without_cache()
     {
         $argument = new Argument('name', 'Foo\Arg');
 

@@ -24,7 +24,7 @@ class DefinitionCollectionTest extends TestCase
     /**
      * @test
      */
-    public function it_adds_definitions(): void
+    public function it_adds_definitions()
     {
         $constructor = new Constructor('Foo\Person', [
             new Argument('name', 'string', false),
@@ -46,7 +46,7 @@ class DefinitionCollectionTest extends TestCase
     /**
      * @test
      */
-    public function it_adds_definitions_on_constructor(): void
+    public function it_adds_definitions_on_constructor()
     {
         $constructor = new Constructor('Foo\Person', [
             new Argument('name', 'string', false),
@@ -67,7 +67,7 @@ class DefinitionCollectionTest extends TestCase
     /**
      * @test
      */
-    public function it_forbids_duplicate_definitions(): void
+    public function it_forbids_duplicate_definitions()
     {
         $this->expectException(\InvalidArgumentException::class);
 
@@ -86,7 +86,7 @@ class DefinitionCollectionTest extends TestCase
     /**
      * @test
      */
-    public function it_merges_definitions(): void
+    public function it_merges_definitions()
     {
         $constructor = new Constructor('Foo\Person', [
             new Argument('name', 'string', false),
@@ -116,7 +116,7 @@ class DefinitionCollectionTest extends TestCase
     /**
      * @test
      */
-    public function it_forbids_duplicate_definitions_during_merge(): void
+    public function it_forbids_duplicate_definitions_during_merge()
     {
         $this->expectException(\InvalidArgumentException::class);
 
@@ -139,7 +139,7 @@ class DefinitionCollectionTest extends TestCase
     /**
      * @test
      */
-    public function it_adds_constructor_definition(): void
+    public function it_adds_constructor_definition()
     {
         $constructor1 = new Constructor('Foo\Bar\Person', [
             new Argument('name', 'string', false),

@@ -25,7 +25,7 @@ class BuildFromArrayBodyTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_from_array_body(): void
+    public function it_builds_from_array_body()
     {
         $userId = new Definition(
             DefinitionType::data(),
@@ -113,7 +113,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_from_array_body_2(): void
+    public function it_builds_from_array_body_2()
     {
         $userId = new Definition(
             DefinitionType::data(),
@@ -175,7 +175,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_from_array_body_3(): void
+    public function it_builds_from_array_body_3()
     {
         $name = new Definition(
             DefinitionType::data(),
@@ -245,7 +245,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_from_array_body_4(): void
+    public function it_builds_from_array_body_4()
     {
         $float1 = new Definition(
             DefinitionType::data(),
@@ -338,7 +338,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_from_array_body_5(): void
+    public function it_builds_from_array_body_5()
     {
         $constructor = new Constructor('My\Person', [
             new Argument('floats', 'float', false, true),
@@ -390,7 +390,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_from_array_body_6(): void
+    public function it_builds_from_array_body_6()
     {
         $nickname = new Definition(
             DefinitionType::data(),
@@ -469,7 +469,7 @@ CODE;
     /**
      * @test
      */
-    public function it_returns_place_holder_when_no_constructor_given(): void
+    public function it_returns_place_holder_when_no_constructor_given()
     {
         $this->assertSame('placeholder', buildFromArrayBody(
             $this->prophesize(Definition::class)->reveal(),

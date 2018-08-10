@@ -23,7 +23,7 @@ class BuildInterfaceNameTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_interface_name(): void
+    public function it_builds_interface_name()
     {
         $definition = new Definition(DefinitionType::marker(), 'Foo', 'Exception');
 
@@ -33,7 +33,7 @@ class BuildInterfaceNameTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_lowercased_interface_name(): void
+    public function it_builds_lowercased_interface_name()
     {
         $definition = new Definition(DefinitionType::marker(), 'Foo', 'exception');
 

@@ -13,7 +13,7 @@ namespace Fpp;
 
 const dump = '\Fpp\dump';
 
-function dump(DefinitionCollection $collection, callable $locatePsrPath, callable $loadTemplate, callable $replace): void
+function dump(DefinitionCollection $collection, callable $locatePsrPath, callable $loadTemplate, callable $replace)
 {
     $codePrefix = <<<CODE
 <?php

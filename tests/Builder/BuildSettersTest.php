@@ -25,7 +25,7 @@ class BuildSettersTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_setters(): void
+    public function it_builds_setters()
     {
         $constructor = new Constructor('My\Person', [
             new Argument('name', 'string'),
@@ -58,7 +58,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_setters_with_constructor_of_different_type(): void
+    public function it_builds_setters_with_constructor_of_different_type()
     {
         $constructor = new Constructor('My\Boss', [
             new Argument('name', 'string'),
@@ -91,7 +91,7 @@ CODE;
     /**
      * @test
      */
-    public function it_builds_setters_with_constructor_of_different_namespace(): void
+    public function it_builds_setters_with_constructor_of_different_namespace()
     {
         $constructor = new Constructor('Your\Boss', [
             new Argument('name', 'string'),
@@ -125,7 +125,7 @@ CODE;
      * @test
      * @dataProvider derivings
      */
-    public function it_returns_placeholder_for(Deriving $deriving): void
+    public function it_returns_placeholder_for(Deriving $deriving)
     {
         $constructor = new Constructor('My\Email', [
             new Argument('key', 'string'),
@@ -145,7 +145,7 @@ CODE;
     /**
      * @test
      */
-    public function it_returns_placeholder_when_no_constructor_passed(): void
+    public function it_returns_placeholder_when_no_constructor_passed()
     {
         $constructor = new Constructor('My\Email', [
             new Argument('key', 'string'),
@@ -164,7 +164,7 @@ CODE;
     /**
      * @test
      */
-    public function it_returns_placeholder_when_no_constructor_arguments_given(): void
+    public function it_returns_placeholder_when_no_constructor_arguments_given()
     {
         $constructor = new Constructor('My\Email');
 

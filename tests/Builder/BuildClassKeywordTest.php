@@ -23,7 +23,7 @@ class BuildClassKeywordTest extends TestCase
     /**
      * @test
      */
-    public function it_adds_abstract_keyword(): void
+    public function it_adds_abstract_keyword()
     {
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Color', [new Constructor('Foo\Red')]);
 
@@ -33,7 +33,7 @@ class BuildClassKeywordTest extends TestCase
     /**
      * @test
      */
-    public function it_adds_final_keyword(): void
+    public function it_adds_final_keyword()
     {
         $constructor = new Constructor('Foo\Red');
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Color', [$constructor]);
@@ -44,7 +44,7 @@ class BuildClassKeywordTest extends TestCase
     /**
      * @test
      */
-    public function it_adds_no_keyword(): void
+    public function it_adds_no_keyword()
     {
         $constructor = new Constructor('Foo\Bar');
         $definition = new Definition(DefinitionType::data(), 'Foo', 'Bar', [$constructor, new Constructor('Foo\Baz')]);

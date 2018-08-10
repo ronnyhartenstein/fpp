@@ -24,7 +24,7 @@ class BuildEnumConstsTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_enum_consts_without_value_mappings(): void
+    public function it_builds_enum_consts_without_value_mappings()
     {
         $constructor1 = new Constructor('My\Red');
         $constructor2 = new Constructor('My\Blue');
@@ -48,7 +48,7 @@ EXPECTED;
     /**
      * @test
      */
-    public function it_builds_enum_consts_with_value_mappings(): void
+    public function it_builds_enum_consts_with_value_mappings()
     {
         $constructor1 = new Constructor('My\Red');
         $constructor2 = new Constructor('My\Blue');
