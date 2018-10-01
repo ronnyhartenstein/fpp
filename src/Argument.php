@@ -25,12 +25,21 @@ class Argument
     /** @var bool */
     private $isList;
 
-    public function __construct(string $name, string $type = null, bool $nullable = false, bool $isList = false)
+    private $defaultValue;
+
+    public function __construct(string $name, string $type = null, bool $nullable = false, bool $isList = false, $defaultValue = null)
     {
         $this->name = $name;
         $this->type = $type;
         $this->nullable = $nullable;
         $this->isList = $isList;
+        $this->defaultValue = $defaultValue;
+
+        if ($isList && null !== $defaultValue) {
+            throw new \InvalidArgumentException(
+                'Argument "' . $name . '" cannot be a list and have a default value'
+            );
+        }
     }
 
     public function name(): string
@@ -56,7 +65,12 @@ class Argument
         return $this->isList;
     }
 
-    public function isScalartypeHint(): bool
+    public function defaultValue()
+    {
+        return $this->defaultValue;
+    }
+
+    public function isScalarTypeHint(): bool
     {
         return \in_array($this->type, ['string', 'int', 'bool', 'float'], true);
     }

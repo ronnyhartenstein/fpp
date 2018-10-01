@@ -71,11 +71,7 @@ class BuildEqualsBodyTest extends TestCase
         $collection = new DefinitionCollection($definition, $definition2, $definition3, $definition4, $definition5);
 
         $expected = <<<STRING
-if (\get_class(\$this) !== \get_class(\$yeah)) {
-            return false;
-        }
-
-        if (\count(\$this->emails) !== \count(\$yeah->emails)) {
+if (\count(\$this->emails) !== \count(\$yeah->emails)) {
             return false;
         }
 
@@ -104,6 +100,41 @@ if (\get_class(\$this) !== \get_class(\$yeah)) {
             )
             && \$this->myEnum->equals(\$yeah->myEnum);
 STRING;
+
+        $this->assertSame($expected, buildEqualsBody($definition, $constructor, $collection, ''));
+    }
+
+    /**
+     * @test
+     */
+    public function it_builds_equals_body_for_composed_objects_without_deriving(): void
+    {
+        $constructor = new Constructor('Foo\Bar', [new Argument('baz', 'Foo\Baz')]);
+        $definition = new Definition(
+            DefinitionType::data(),
+            'Foo',
+            'Bar',
+            [
+                $constructor,
+            ],
+            [
+                new Deriving\Equals(),
+            ]
+        );
+
+        $definition2 = new Definition(DefinitionType::data(), 'Foo', 'Baz', [
+            new Constructor('Foo\Baz', [
+                new Argument('value', 'int'),
+            ]),
+        ], [
+            new Deriving\FromScalar(),
+        ]);
+
+        $collection = new DefinitionCollection($definition, $definition2);
+
+        $expected = <<<CODE
+return \$this->baz === \$bar->baz;
+CODE;
 
         $this->assertSame($expected, buildEqualsBody($definition, $constructor, $collection, ''));
     }

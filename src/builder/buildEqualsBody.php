@@ -39,11 +39,15 @@ function buildEqualsBody(Definition $definition, $constructor, DefinitionCollect
     }
 
     $variableName = \lcfirst($definition->name());
-    $code = "if (\get_class(\$this) !== \get_class(\$$variableName)) {\n";
-    $code .= "            return false;\n";
-    $code .= "        }\n\n";
-
+    $isFinal = buildClassKeyword($definition, $constructor, $collection, $placeHolder) === 'final ';
+    $code = '';
     $addCode = '        return ';
+
+    if (! $isFinal) {
+        $code = "if (\get_class(\$this) !== \get_class(\$$variableName)) {\n";
+        $code .= "            return false;\n";
+        $code .= "        }\n\n";
+    }
 
     if (0 === \count($constructor->arguments())) {
         $code .= "        return \$this->value === \${$variableName}->value;";
@@ -64,6 +68,8 @@ function buildEqualsBody(Definition $definition, $constructor, DefinitionCollect
 CODE;
     };
 
+    $namespace = null;
+    $name = null;
     foreach ($constructor->arguments() as $argument) {
         $nullableOrScalarType = (null === $argument->type() || $argument->isScalartypeHint());
         if ($nullableOrScalarType && ! $argument->isList()) {
@@ -84,9 +90,15 @@ CODE;
             }
         }
 
+        $argumentName = $argument->name();
+
         if ($argument->isList()) {
-            $argumentName = $argument->name();
-            $code .= "        if (\count(\$this->$argumentName) !== \count(\${$variableName}->{$argumentName})) {\n";
+            if ($code === '') {
+                $code .= "if (\count(\$this->$argumentName) !== \count(\${$variableName}->{$argumentName})) {\n";
+            } else {
+                $code .= "        if (\count(\$this->$argumentName) !== \count(\${$variableName}->{$argumentName})) {\n";
+            }
+
             $code .= "            return false;\n";
             $code .= "        }\n\n";
             $code .= "        foreach (\$this->$argumentName as \$__i => \$__value) {\n";
@@ -114,11 +126,12 @@ CODE;
                 }
 
                 if (! $compare) {
-                    throw new \RuntimeException(\sprintf(
-                        'No comparable deriving given for argument $%s on definition %s',
-                        $argumentName,
-                        $namespace . '\\' . $name
-                    ));
+                    $message = \sprintf('No comparable deriving given for argument $%s', $argumentName);
+                    if ($namespace && $name) {
+                        $message .= \sprintf(' on definition %s\\%s', $namespace, $name);
+                    }
+
+                    throw new \RuntimeException($message);
                 }
 
                 $code .= "            if (! $compare) {\n";
@@ -133,25 +146,31 @@ CODE;
             switch ((string) $deriving) {
                 case Deriving\Equals::VALUE:
                 case Deriving\Enum::VALUE:
-                    $addCode .= $nullCheck($argument->nullable(), $argument->name(), "&& \$this->{$argument->name()}->equals(\${$variableName}->{$argument->name()})");
+                    $addCode .= $nullCheck($argument->nullable(), $argumentName, "&& \$this->{$argumentName}->equals(\${$variableName}->{$argumentName})");
                     continue 3;
                 case Deriving\ToArray::VALUE:
-                    $addCode .= $nullCheck($argument->nullable(), $argument->name(), "&& \$this->{$argument->name()}->toArray() === \${$variableName}->{$argument->name()}->toArray()");
+                    $addCode .= $nullCheck($argument->nullable(), $argumentName, "&& \$this->{$argumentName}->toArray() === \${$variableName}->{$argumentName}->toArray()");
                     continue 3;
                 case Deriving\ToScalar::VALUE:
-                    $addCode .= $nullCheck($argument->nullable(), $argument->name(), "&& \$this->{$argument->name()}->toScalar() === \${$variableName}->{$argument->name()}->toScalar()");
+                    $addCode .= $nullCheck($argument->nullable(), $argumentName, "&& \$this->{$argumentName}->toScalar() === \${$variableName}->{$argumentName}->toScalar()");
                     continue 3;
                 case Deriving\ToString::VALUE:
                 case Deriving\Uuid::VALUE:
-                    $addCode .= $nullCheck($argument->nullable(), $argument->name(), "&& \$this->{$argument->name()}->toString() === \${$variableName}->{$argument->name()}->toString()");
+                    $addCode .= $nullCheck($argument->nullable(), $argumentName, "&& \$this->{$argumentName}->toString() === \${$variableName}->{$argumentName}->toString()");
                     continue 3;
             }
         }
+
+        $addCode .= $nullCheck($argument->nullable(), $argumentName, "&& \$this->{$argumentName} === \${$variableName}->{$argumentName}");
     }
 
     if ($addCode !== '        return ') {
-        $addCode = \str_replace('        return             &&', '        return', $addCode);
-        $addCode = \substr($addCode, 0, \strlen($addCode) - 1) . ';';
+        if ($isFinal && '' === $code) {
+            $addCode = \str_replace('        return             &&', 'return', $addCode);
+        } else {
+            $addCode = \str_replace('        return             &&', '        return', $addCode);
+        }
+        $addCode = \substr($addCode, 0, -1) . ';';
         $code .= $addCode;
     }
 

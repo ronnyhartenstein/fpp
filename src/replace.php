@@ -25,23 +25,44 @@ function replace(
     }
 
     foreach ($builders as $placeHolder => $builder) {
-        $template = \str_replace('{{' . $placeHolder . '}}', $builder($definition, $constructor, $collection, '{{' . $placeHolder . '}}'), $template);
+        $searchString = '{{' . $placeHolder . '}}';
+
+        if (false !== \strpos($template, $searchString)) {
+            $template = \str_replace($searchString, $builder($definition, $constructor, $collection, '{{' . $placeHolder . '}}'), $template);
+        }
     }
 
     foreach ($builders as $placeHolder => $builder) {
-        $template = \str_replace("\n        {{{$placeHolder}}}\n", "\n", $template);
-        $template = \str_replace("\n    {{{$placeHolder}}}\n\n", "\n", $template);
-        $template = \str_replace("\n    {{{$placeHolder}}}\n", "\n", $template);
-        $template = \str_replace("\n{{{$placeHolder}}}\n", "\n", $template);
+        $needles = [
+            "\n        {{{$placeHolder}}}\n",
+            "\n    {{{$placeHolder}}}\n\n",
+            "\n    {{{$placeHolder}}}\n",
+            "\n{{{$placeHolder}}}\n",
+        ];
+        $template = \str_replace($needles, "\n", $template);
     }
 
     // clean up
-    $template = \str_replace("\n    }\n    ", "\n    }\n\n    ", $template);
-    $template = \str_replace("\n\n\n", "\n\n", $template);
-    $template = \str_replace("\n    \n", "\n", $template);
-    $template = \str_replace("\n\n}\n}", "\n}\n}", $template);
-    $template = \str_replace("\n\n    }\n", "\n    }\n", $template);
-    $template = \str_replace("    }\n\n}\n", "    }\n}\n", $template);
+
+    $needles = [
+        "\n    }\n    ",
+        "\n\n\n",
+        "\n    \n",
+        "\n\n}\n}",
+        "\n\n    }\n",
+        "    }\n\n}\n",
+    ];
+
+    $replaces = [
+        "\n    }\n\n    ",
+        "\n\n",
+        "\n",
+        "\n}\n}",
+        "\n    }\n",
+        "    }\n}\n",
+    ];
+
+    $template = \str_replace($needles, $replaces, $template);
 
     return $template . "\n";
 }

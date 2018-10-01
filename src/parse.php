@@ -27,6 +27,7 @@ function parse(string $filename, array $derivingMap): DefinitionCollection
         throw new \RuntimeException("'$filename' is not readable");
     }
 
+    $definitionType = null;
     $namespaceFound = false;
     $contents = \file_get_contents($filename);
     $tokens = \token_get_all("<?php\n\n$contents");
@@ -264,8 +265,8 @@ function parse(string $filename, array $derivingMap): DefinitionCollection
                     $token = $nextToken();
                 }
 
-                if (\in_array($constructorName, ['Bool', 'Float', 'Int', 'String'], true)
-                    && $token[1] === '['
+                if ($token[1] === '['
+                    && \in_array($constructorName, ['Bool', 'Float', 'Int', 'String'], true)
                 ) {
                     $token = $nextToken();
 
@@ -369,16 +370,33 @@ function parse(string $filename, array $derivingMap): DefinitionCollection
                             $token = $nextToken();
                             $requireVariable($token);
                             $argumentName = \substr($token[1], 1);
+                            $defaultValue = null;
                             $token = $skipWhitespace($nextToken());
 
+                            if ('=' === $token[1]) {
+                                $token = $skipWhitespace($nextToken());
+                                $defaultValue = $token[1];
+                                $token = $skipWhitespace($nextToken());
+                            }
+
                             if (\in_array($token[1], [',', '}'], true)) {
-                                $arguments[] = new Argument($argumentName, $type, $nullable, $isList);
+                                $arguments[] = new Argument($argumentName, $type, $nullable, $isList, $defaultValue);
                                 goto parseArguments;
                             }
                             throw ParseError::unexpectedTokenFound(', or }', $token, $filename);
                         } elseif ($token[0] === T_VARIABLE) {
-                            $arguments[] = new Argument(\substr($token[1], 1));
+                            $argumentName = \substr($token[1], 1);
+
                             $token = $skipWhitespace($nextToken());
+                            $defaultValue = null;
+
+                            if ('=' === $token[1]) {
+                                $token = $skipWhitespace($nextToken());
+                                $defaultValue = $token[1];
+                                $token = $skipWhitespace($nextToken());
+                            }
+
+                            $arguments[] = new Argument($argumentName, null, false, false, $defaultValue);
 
                             if (\in_array($token[1], [',', '}'], true)) {
                                 goto parseArguments;
@@ -433,8 +451,8 @@ function parse(string $filename, array $derivingMap): DefinitionCollection
                         $derivings[] = $derivingMap[$token[1]];
                         $token = $skipWhitespace($nextToken());
 
-                        if (\in_array($derivingName, ['AggregateChanged', 'Command', 'DomainEvent', 'Query'], true)
-                            && ':' === $token[1]
+                        if (':' === $token[1]
+                            && \in_array($derivingName, ['AggregateChanged', 'Command', 'DomainEvent', 'Query'], true)
                         ) {
                             $token = $skipWhitespace($nextToken());
 
@@ -462,6 +480,7 @@ function parse(string $filename, array $derivingMap): DefinitionCollection
                 if ('with' === $token[1]) {
                     $enumDerivingFound = false;
 
+                    $key = null;
                     foreach ($derivings as $key => $deriving) {
                         if ($deriving->equals(new Deriving\Enum())) {
                             $enumDerivingFound = true;
@@ -537,7 +556,9 @@ function parse(string $filename, array $derivingMap): DefinitionCollection
                     }
 
                     $token = $skipWhitespace($nextToken());
-                    unset($derivings[$key]);
+                    if (null !== $key) {
+                        unset($derivings[$key]);
+                    }
                     $derivings[] = new Deriving\Enum($valueMapping);
                 }
 
@@ -614,6 +635,10 @@ function parse(string $filename, array $derivingMap): DefinitionCollection
                 }
 
                 buildDefinition:
+                if (null === $definitionType) {
+                    throw ParseError::unknownDefinitionType($namespace, $name);
+                }
+
                 $collection->addDefinition(new Definition($definitionType, $namespace, $name, $constructors, $derivings, $conditions, $messageName, $markers));
                 break;
             case T_WHITESPACE:

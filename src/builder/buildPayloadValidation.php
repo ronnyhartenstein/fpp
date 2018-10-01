@@ -20,6 +20,8 @@ const buildPayloadValidation = '\Fpp\Builder\buildPayloadValidation';
 
 function buildPayloadValidation(Definition $definition, $constructor, DefinitionCollection $collection, string $placeHolder): string
 {
+    $inclFirstArgument = null;
+
     foreach ($definition->derivings() as $deriving) {
         if ($deriving->equals(new Deriving\AggregateChanged())
             || $deriving->equals(new Deriving\MicroAggregateChanged())
@@ -35,7 +37,7 @@ function buildPayloadValidation(Definition $definition, $constructor, Definition
         }
     }
 
-    if (! isset($inclFirstArgument)) {
+    if (null === $inclFirstArgument) {
         return $placeHolder;
     }
 

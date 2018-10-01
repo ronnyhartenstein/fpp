@@ -25,6 +25,8 @@ function buildStaticConstructorBody(Definition $definition, $constructor, Defini
         return $placeHolder;
     }
 
+    $inclFirstArgument = null;
+
     foreach ($definition->derivings() as $deriving) {
         if ($deriving->equals(new Deriving\AggregateChanged())
             || $deriving->equals(new Deriving\MicroAggregateChanged())
@@ -40,7 +42,7 @@ function buildStaticConstructorBody(Definition $definition, $constructor, Defini
         }
     }
 
-    if (! isset($inclFirstArgument)) {
+    if (null === $inclFirstArgument) {
         return $placeHolder;
     }
 
@@ -118,7 +120,7 @@ CODE;
                         $code .= $addArgument($key, $argument->name(), "\$__array_{$argument->name()}");
                     } else {
                         $value = $argument->nullable()
-                            ? "null === \${$argument->name()} ? null : "
+                            ? "null === \${$argument->name()} ? null : \${$argument->name()}->toArray()"
                             : "\${$argument->name()}->toArray()";
 
                         $code .= $addArgument($key, $argument->name(), $value);

@@ -57,8 +57,13 @@ function buildSetters(Definition $definition, $constructor, DefinitionCollection
 
     foreach ($constructor->arguments() as $key => $argument) {
         $type = buildArgumentType($argument, $definition);
+
+        if ($type !== '') {
+            $type .= ' ';
+        }
+
         $setterName = 'with' . \ucfirst($argument->name());
-        $setters .= "    public function $setterName($type \${$argument->name()}): $self\n    {\n";
+        $setters .= "    public function $setterName($type\${$argument->name()}): $self\n    {\n";
         $constructorArguments = '';
 
         foreach ($constructor->arguments() as $key2 => $argument2) {
@@ -69,7 +74,7 @@ function buildSetters(Definition $definition, $constructor, DefinitionCollection
             }
         }
 
-        if (1 === \count($constructor->arguments()) && $argument->isList()) {
+        if ($argument->isList() && 1 === \count($constructor->arguments())) {
             $constructorArguments = '...' . $constructorArguments;
         }
 

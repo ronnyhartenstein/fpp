@@ -27,7 +27,14 @@ function buildArguments(Definition $definition, $constructor, DefinitionCollecti
 
     foreach ($constructor->arguments() as $argument) {
         if (null === $argument->type()) {
-            $argumentList .= '$' . $argument->name() . ', ';
+            $argumentList .= '$' . $argument->name();
+
+            if (null !== $argument->defaultValue()) {
+                $argumentList .= ' = ' . $argument->defaultValue();
+            }
+
+            $argumentList .= ', ';
+
             continue;
         }
 
@@ -35,13 +42,25 @@ function buildArguments(Definition $definition, $constructor, DefinitionCollecti
             $argumentList .= '?';
         }
 
-        if (1 === \count($constructor->arguments()) && $argument->isScalartypeHint()) {
+        if ($argument->isScalartypeHint() && 1 === \count($constructor->arguments())) {
             $argumentType = $argument->isList() ? $argument->type() . ' ...' : $argument->type() . ' ';
-            $argumentList .= $argumentType . '$' . $argument->name() . ', ';
+            $argumentList .= $argumentType . '$' . $argument->name();
+
+            if (null !== $argument->defaultValue()) {
+                $argumentList .= ' = ' . $argument->defaultValue();
+            }
+
+            $argumentList .= ', ';
             continue;
         } elseif ($argument->isScalartypeHint()) {
             $argumentType = $argument->isList() ? 'array' : $argument->type();
-            $argumentList .= $argumentType . ' $' . $argument->name() . ', ';
+            $argumentList .= $argumentType . ' $' . $argument->name();
+
+            if (null !== $argument->defaultValue()) {
+                $argumentList .= ' = ' . $argument->defaultValue();
+            }
+
+            $argumentList .= ', ';
             continue;
         }
 
@@ -54,12 +73,18 @@ function buildArguments(Definition $definition, $constructor, DefinitionCollecti
             ? $name
             : '\\' . $argument->type();
 
-        if (1 === \count($constructor->arguments()) && $argument->isList()) {
+        if ($argument->isList() && 1 === \count($constructor->arguments())) {
             $argumentList .= $type . ' ...$' . $argument->name() . ', ';
         } elseif ($argument->isList()) {
             $argumentList .= 'array $' . $argument->name() . ', ';
         } else {
-            $argumentList .= $type . ' $' . $argument->name() . ', ';
+            $argumentList .= $type . ' $' . $argument->name();
+
+            if (null !== $argument->defaultValue()) {
+                $argumentList .= ' = ' . $argument->defaultValue();
+            }
+
+            $argumentList .= ', ';
         }
     }
 

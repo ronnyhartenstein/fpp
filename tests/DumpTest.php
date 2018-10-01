@@ -26,7 +26,7 @@ use function Fpp\locatePsrPath;
 class DumpTest extends TestCase
 {
     /**
-     * @var vfsStream
+     * @var \org\bovigo\vfs\vfsStreamDirectory
      */
     private $root;
 
@@ -162,7 +162,7 @@ CODE;
     /**
      * @test
      */
-    public function it_dumps_a_marker()
+    public function it_dumps_a_marker(): void
     {
         $dump = $this->dump;
 
@@ -192,7 +192,7 @@ CODE;
     /**
      * @test
      */
-    public function it_dumps_a_marker_with_its_parent_markers()
+    public function it_dumps_a_marker_with_its_parent_markers(): void
     {
         $dump = $this->dump;
 
@@ -261,7 +261,7 @@ CODE;
     /**
      * @test
      */
-    public function it_dumps_a_marker_with_its_parent_marker_located_in_another_namespace()
+    public function it_dumps_a_marker_with_its_parent_marker_located_in_another_namespace(): void
     {
         $dump = $this->dump;
 
@@ -311,7 +311,7 @@ CODE;
     /**
      * @test
      */
-    public function it_dumps_marker_extending_a_marker_interface()
+    public function it_dumps_marker_extending_a_marker_interface(): void
     {
         $dump = $this->dump;
 
@@ -345,7 +345,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_dumping_a_marker_extending_a_non_marker_interface()
+    public function it_throws_exception_when_dumping_a_marker_extending_a_non_marker_interface(): void
     {
         $dump = $this->dump;
 
@@ -363,7 +363,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_dumping_a_marker_extending_an_unexisting_interface()
+    public function it_throws_exception_when_dumping_a_marker_extending_an_unexisting_interface(): void
     {
         $dump = $this->dump;
 
@@ -381,7 +381,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_dumping_a_marker_extending_a_class()
+    public function it_throws_exception_when_dumping_a_marker_extending_a_class(): void
     {
         $dump = $this->dump;
 
@@ -399,7 +399,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_extending_unexisting_marker_in_current_namespace()
+    public function it_throws_exception_when_extending_unexisting_marker_in_current_namespace(): void
     {
         $dump = $this->dump;
 
@@ -418,7 +418,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_extending_itself()
+    public function it_throws_exception_when_extending_itself(): void
     {
         $dump = $this->dump;
 
@@ -436,7 +436,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_a_marker_extends_a_data_type()
+    public function it_throws_exception_when_a_marker_extends_a_data_type(): void
     {
         $dump = $this->dump;
 
@@ -455,7 +455,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_a_marker_extends_an_exception_type()
+    public function it_throws_exception_when_a_marker_extends_an_exception_type(): void
     {
         $this->markTestIncomplete(
           'This test must be implemented when the exception type is added'
@@ -465,7 +465,7 @@ CODE;
     /**
      * @test
      */
-    public function it_dumps_data_with_markers()
+    public function it_dumps_data_with_markers(): void
     {
         $dump = $this->dump;
 
@@ -501,7 +501,7 @@ CODE;
     /**
      * @test
      */
-    public function it_dumps_data_with_markers_located_in_another_namespace()
+    public function it_dumps_data_with_markers_located_in_another_namespace(): void
     {
         $dump = $this->dump;
 
@@ -537,7 +537,7 @@ CODE;
     /**
      * @test
      */
-    public function it_dumps_data_extending_an_existing_marker_interface()
+    public function it_dumps_data_extending_an_existing_marker_interface(): void
     {
         $dump = $this->dump;
 
@@ -571,7 +571,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_dumping_data_with_non_marker_interface()
+    public function it_throws_exception_when_dumping_data_with_non_marker_interface(): void
     {
         $dump = $this->dump;
 
@@ -589,7 +589,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_dumping_data_with_unknown_marker()
+    public function it_throws_exception_when_dumping_data_with_unknown_marker(): void
     {
         $dump = $this->dump;
 
@@ -608,7 +608,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_dumping_data_marked_with_non_marker()
+    public function it_throws_exception_when_dumping_data_marked_with_non_marker(): void
     {
         $dump = $this->dump;
 

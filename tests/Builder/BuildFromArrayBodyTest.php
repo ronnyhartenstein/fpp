@@ -359,6 +359,8 @@ CODE;
 if (! isset(\$data['floats']) || ! \is_array(\$data['floats'])) {
             throw new \InvalidArgumentException("Key 'floats' is missing in data array or is not an array");
         }
+        
+        \$floats = [];
 
         foreach (\$data['floats'] as \$__value) {
             if (! \is_float(\$__value) && ! \is_int(\$__value)) {
@@ -371,6 +373,8 @@ if (! isset(\$data['floats']) || ! \is_array(\$data['floats'])) {
         if (! isset(\$data['strings']) || ! \is_array(\$data['strings'])) {
             throw new \InvalidArgumentException("Key 'strings' is missing in data array or is not an array");
         }
+        
+        \$strings = [];
 
         foreach (\$data['strings'] as \$__value) {
             if (! \is_string(\$__value)) {
@@ -420,6 +424,8 @@ CODE;
 if (! isset(\$data['floats']) || ! \is_array(\$data['floats'])) {
             throw new \InvalidArgumentException("Key 'floats' is missing in data array or is not an array");
         }
+        
+        \$floats = [];
 
         foreach (\$data['floats'] as \$__value) {
             if (! \is_float(\$__value) && ! \is_int(\$__value)) {
@@ -432,6 +438,8 @@ if (! isset(\$data['floats']) || ! \is_array(\$data['floats'])) {
         if (! isset(\$data['strings']) || ! \is_array(\$data['strings'])) {
             throw new \InvalidArgumentException("Key 'strings' is missing in data array or is not an array");
         }
+        
+        \$strings = [];
 
         foreach (\$data['strings'] as \$__value) {
             if (! \is_string(\$__value)) {
@@ -471,11 +479,12 @@ CODE;
      */
     public function it_returns_place_holder_when_no_constructor_given()
     {
-        $this->assertSame('placeholder', buildFromArrayBody(
-            $this->prophesize(Definition::class)->reveal(),
-            null,
-            $this->prophesize(DefinitionCollection::class)->reveal(),
-            'placeholder'
-        ));
+        /** @var Definition */
+        $definition = $this->prophesize(Definition::class)->reveal();
+
+        /** @var DefinitionCollection */
+        $collection = $this->prophesize(DefinitionCollection::class)->reveal();
+
+        $this->assertSame('placeholder', buildFromArrayBody($definition, null, $collection, 'placeholder'));
     }
 }

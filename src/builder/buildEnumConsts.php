@@ -28,6 +28,7 @@ function buildEnumConsts(Definition $definition, $constructor, DefinitionCollect
     $enumDeriving = new Enum();
     foreach ($definition->derivings() as $deriving) {
         if ($deriving->equals($enumDeriving)) {
+            /** @var Enum */
             $enumDeriving = $deriving;
             $found = true;
             break;
@@ -38,8 +39,8 @@ function buildEnumConsts(Definition $definition, $constructor, DefinitionCollect
         return $placeHolder;
     }
 
-    foreach ($definition->constructors() as $key => $constructor) {
-        $class = buildReferencedClass($definition->namespace(), $constructor->name());
+    foreach ($definition->constructors() as $key => $constructor2) {
+        $class = buildReferencedClass($definition->namespace(), $constructor2->name());
         $export = empty($enumDeriving->valueMapping()) ? $key : fpp_var_export($enumDeriving->valueMapping()[$class], '    ');
         $replace .= "    const $class = $export;\n";
     }
