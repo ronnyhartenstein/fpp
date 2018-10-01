@@ -1095,7 +1095,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_marker(): void
+    public function it_parses_marker()
     {
         $contents = <<<CODE
 namespace Foo;
@@ -1109,7 +1109,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_marker_extending_another_marker_interface(): void
+    public function it_parses_marker_extending_another_marker_interface()
     {
         $contents = <<<CODE
 namespace Foo;
@@ -1136,7 +1136,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_marker_extending_existing_interfaces(): void
+    public function it_parses_marker_extending_existing_interfaces()
     {
         $contents = <<<CODE
 namespace Foo;
@@ -1152,7 +1152,7 @@ CODE;
     /**
      * @test
      */
-    public function it_throws_exception_when_parsing_data_marked_with_existing_interface(): void
+    public function it_throws_exception_when_parsing_data_marked_with_existing_interface()
     {
         $contents = <<<CODE
 namespace Foo;
@@ -1169,7 +1169,7 @@ CODE;
     /**
      * @test
      */
-    public function it_parses_marked_data(): void
+    public function it_parses_marked_data()
     {
         $contents = <<<CODE
 namespace Foo;

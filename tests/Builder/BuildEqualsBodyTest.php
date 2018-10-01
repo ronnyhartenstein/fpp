@@ -107,7 +107,7 @@ STRING;
     /**
      * @test
      */
-    public function it_builds_equals_body_for_composed_objects_without_deriving(): void
+    public function it_builds_equals_body_for_composed_objects_without_deriving()
     {
         $constructor = new Constructor('Foo\Bar', [new Argument('baz', 'Foo\Baz')]);
         $definition = new Definition(

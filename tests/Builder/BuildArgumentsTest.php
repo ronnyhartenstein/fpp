@@ -47,7 +47,7 @@ class BuildArgumentsTest extends TestCase
     /**
      * @test
      */
-    public function it_builds_arguments_with_default_values(): void
+    public function it_builds_arguments_with_default_values()
     {
         $constructor = new Constructor('Foo\Bar', [
             new Argument('name', 'string', false, false, '\'test\''),
