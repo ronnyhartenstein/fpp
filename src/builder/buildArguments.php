@@ -66,7 +66,13 @@ function buildArguments(Definition $definition, $constructor, DefinitionCollecti
 
         $nsPosition = \strrpos($argument->type(), '\\');
 
-        $namespace = \substr($argument->type(), 0, $nsPosition);
+        $namespace = null;
+        if($nsPosition === false) {
+            $namespace = "\\";
+            $nsPosition = -1;
+        } else {
+            $namespace = \substr($argument->type(), 0, $nsPosition);
+        }
         $name = \substr($argument->type(), $nsPosition + 1);
 
         $type = $namespace === $definition->namespace()
